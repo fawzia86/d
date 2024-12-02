@@ -293,8 +293,13 @@
 
                         if (countdownTime <= 0) {
                             clearInterval(interval);
+                            countdown.style.opacity = 0;
                             progressBarContainer.style.opacity = 0;
-                            hiddenText.style.color = 'rgba(255, 255, 255, 0.3)';
+                            
+                            // Add an additional second to show the hidden text clearly
+                            setTimeout(() => {
+                                hiddenText.style.color = 'rgba(255, 255, 255, 0.3)';  // Show text clearly
+                            }, 3500);  // Show after 1 second
                             setTimeout(() => {
                                 window.location.reload();
                             }, 5000);
